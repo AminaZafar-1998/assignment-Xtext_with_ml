@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: assignment_2_ssda.xtext_ml.ass2.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: assignment_2_ssda.xtext_ml.ass2.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: assignment_2_ssda.xtext_ml.ass2.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: assignment_2_ssda.xtext_ml.ass2,
+ assignment_2_ssda.xtext_ml.ass2.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: assignment_2_ssda.xtext_ml.ass2.ui,
+ assignment_2_ssda.xtext_ml.ass2.ui.contentassist,
+ assignment_2_ssda.xtext_ml.ass2.ui.internal,
+ assignment_2_ssda.xtext_ml.ass2.ui.quickfix
+Bundle-Activator: assignment_2_ssda.xtext_ml.ass2.ui.internal.Ass2Activator
