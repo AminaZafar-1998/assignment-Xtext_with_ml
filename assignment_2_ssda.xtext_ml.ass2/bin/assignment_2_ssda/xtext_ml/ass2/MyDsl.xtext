@@ -1,0 +1,109 @@
+grammar assignment_2_ssda.xtext_ml.ass2.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext_ml.assignment_2_ssda/ass2/MyDsl" 
+Diabetes_Prediction_System: 'Diabetes_prediction_System:'  name =ID
+	
+ medicines += Medicines*
+ symptom +=Symptom*
+ doctors += Doctor* 
+ patient += Patient*
+ Machine_learning_Algorithms += Machine_learning_Algorithms+
+;
+
+Medicines: 'Medicines' Medicine_name = ID
+     'Medicine_dossage:' Medicine_dossage = STRING
+; 
+Symptom: Polyuria | Polydipsia |sudden_weight_loss | Polyphagia | Genital_thrush | visual_blurring | Itching | Irritability | delayed_healing | partial_paresis
+	| muscle_stiffness | Alopecia | Obesity
+	;
+	
+Polyuria: 'Polyuria' 
+	 'name:' name=ID
+;
+
+Polydipsia: 'Polydipsia'
+	 'name:' name=ID
+;
+
+sudden_weight_loss: 'sudden_weight_loss'
+	'name:' name=ID
+;
+
+Polyphagia: 'Polyphagia'
+	'name:' name=ID
+  ;
+
+Genital_thrush: 'Genital_thrush' 
+	'name:' name=ID
+;
+
+visual_blurring: 'visual_blurring'
+	'name:' name=ID
+;
+Itching: 'Itching'
+	    'name:' name=ID
+;
+Irritability: 'Irritability'
+	   'name:' name=ID
+;
+delayed_healing: 'delayed_healing'
+	   'name:' name=ID
+;	
+partial_paresis: 'partial_paresis'
+	   'name:' name=ID
+;	
+muscle_stiffness: 'muscle_stiffness'
+	   'name:' name=ID
+;
+Alopecia: 'Alopecia'
+	   'name:' name=ID
+;
+
+Obesity: 'Obesity'
+	   'name:' name=ID
+;
+Sugar_Test: 'Sugar_test'
+	  'Previous_blood_sugar' Previous_blood_sugar=STRING
+	  'Current_blood_sugar'  Current_blood_sugar=STRING
+;
+
+Doctor: 'Doctor' name=ID 
+      'Doctor_specailization' Doctor_specailization = STRING
+       medicines += Medicines*
+       symptoms  += Symptom*
+;
+ 
+Patient: 'Patient' name =ID
+        'Patient_Gender' Patient_Gender= ID
+        'Patient_Age' Patient_Age= INT
+        'Patient_Height' Patient_Height= STRING
+     	'Patient_Weight' Patient_Weight= STRING
+	    'patients_blood_pressure' patient_blood_pressure= INT
+     	'pulse_rate' pulse_rate=INT
+	     symptoms +=Symptom+
+	     medicines += Medicines*
+         sugar_tests +=Sugar_Test+
+         'doctor' DOCTORS += [Doctor]+
+;
+
+Predict_diabetes :'Predict_diabetes' name=INT
+;
+Machine_learning_Algorithms:  Random_forest | SVM_Classifier|J48Classifier |NavieBayes
+;
+Random_forest: 'Random_forest'
+	    'create_trees' create_trees=STRING
+	     Predict_diabetes = Predict_diabetes
+;
+SVM_Classifier: 'SVM_Classifier'
+	    'kernel:' Kernel=STRING
+	    Predict_diabetes = Predict_diabetes
+;
+
+J48Classifier: 'J48Classifier'
+	    'set_pruned_trees:' set_pruned_trees = STRING
+	    Predict_diabetes = Predict_diabetes
+;
+NavieBayes: 'NavieBayes'
+	    'Conditional_Probability_based:' Conditional_Probability_based = STRING
+	    Predict_diabetes = Predict_diabetes
+;

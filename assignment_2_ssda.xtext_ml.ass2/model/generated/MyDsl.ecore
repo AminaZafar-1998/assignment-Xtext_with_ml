@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myDsl" nsURI="http://www.xtext_ml.assignment_2_ssda/ass2/MyDsl"
+    nsPrefix="myDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Diabetes_Prediction_System">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="medicines" upperBound="-1"
+        eType="#//Medicines" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="symptom" upperBound="-1"
+        eType="#//Symptom" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="doctors" upperBound="-1"
+        eType="#//Doctor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patient" upperBound="-1"
+        eType="#//Patient" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Machine_learning_Algorithms"
+        upperBound="-1" eType="#//Machine_learning_Algorithms" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Medicines">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Medicine_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Medicine_dossage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Symptom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Polyuria" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Polydipsia" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="sudden_weight_loss" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Polyphagia" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Genital_thrush" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="visual_blurring" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Itching" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Irritability" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="delayed_healing" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="partial_paresis" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="muscle_stiffness" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Alopecia" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Obesity" eSuperTypes="#//Symptom"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sugar_Test">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Previous_blood_sugar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Current_blood_sugar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Doctor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Doctor_specailization"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="medicines" upperBound="-1"
+        eType="#//Medicines" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="symptoms" upperBound="-1"
+        eType="#//Symptom" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Patient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Patient_Gender" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Patient_Age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Patient_Height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Patient_Weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patient_blood_pressure"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pulse_rate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="symptoms" upperBound="-1"
+        eType="#//Symptom" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="medicines" upperBound="-1"
+        eType="#//Medicines" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sugar_tests" upperBound="-1"
+        eType="#//Sugar_Test" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DOCTORS" unique="false"
+        upperBound="-1" eType="#//Doctor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Predict_diabetes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Machine_learning_Algorithms">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Predict_diabetes" eType="#//Predict_diabetes"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Random_forest" eSuperTypes="#//Machine_learning_Algorithms">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="create_trees" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SVM_Classifier" eSuperTypes="#//Machine_learning_Algorithms">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kernel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="J48Classifier" eSuperTypes="#//Machine_learning_Algorithms">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="set_pruned_trees" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NavieBayes" eSuperTypes="#//Machine_learning_Algorithms">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Conditional_Probability_based"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
